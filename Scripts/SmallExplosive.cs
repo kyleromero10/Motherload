@@ -40,6 +40,12 @@ public partial class SmallExplosive : StaticBody2D
                 if(!smallExplosive.lit)
                     smallExplosive.Lit();
             }
+            // Medium Explosives
+            else if(node is MediumExplosive mediumExplosive)
+            {
+                if(!mediumExplosive.lit)
+                    mediumExplosive.Lit();
+            }
         }
         // deletes itself because it was causing lag by staying in the world
         QueueFree();
