@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c78c1i3xf7rie" path="res://Objects/gunpowder.tscn" id="1_3dogw"]
 [ext_resource type="PackedScene" uid="uid://ckdteieu14e4u" path="res://Objects/start.tscn" id="2_r5l72"]
 [ext_resource type="PackedScene" uid="uid://dbg174fsrgghc" path="res://Objects/small_explosive.tscn" id="3_50ct6"]
+[ext_resource type="PackedScene" uid="uid://c7308w8f83l5o" path="res://Objects/medium_explosive.tscn" id="4_hb2xm"]
 
 [node name="Node2D" type="Node2D" unique_id=1722796830]
 
@@ -58,31 +59,43 @@ position = Vector2(588, 300)
 position = Vector2(572, 324)
 
 [node name="SmallExplosive" parent="." unique_id=636072833 instance=ExtResource("3_50ct6")]
-position = Vector2(576, 296)
+position = Vector2(584, 288)
 
 [node name="Gunpowder21" parent="." unique_id=129870142 instance=ExtResource("1_3dogw")]
-position = Vector2(532, 300)
-
-[node name="Gunpowder22" parent="." unique_id=1047672138 instance=ExtResource("1_3dogw")]
-position = Vector2(532, 308)
-
-[node name="Gunpowder23" parent="." unique_id=295166323 instance=ExtResource("1_3dogw")]
 position = Vector2(532, 316)
 
+[node name="Gunpowder22" parent="." unique_id=1047672138 instance=ExtResource("1_3dogw")]
+position = Vector2(532, 324)
+
+[node name="Gunpowder23" parent="." unique_id=295166323 instance=ExtResource("1_3dogw")]
+position = Vector2(532, 332)
+
 [node name="SmallExplosive2" parent="." unique_id=29670353 instance=ExtResource("3_50ct6")]
-position = Vector2(536, 328)
+position = Vector2(536, 344)
 
 [node name="SmallExplosive3" parent="." unique_id=2086645666 instance=ExtResource("3_50ct6")]
-position = Vector2(536, 368)
+position = Vector2(536, 384)
 
 [node name="Gunpowder" parent="." unique_id=272507943 instance=ExtResource("1_3dogw")]
-position = Vector2(580, 373)
+position = Vector2(580, 389)
 
 [node name="Gunpowder2" parent="." unique_id=1614344071 instance=ExtResource("1_3dogw")]
-position = Vector2(588, 373)
+position = Vector2(588, 389)
 
 [node name="Gunpowder3" parent="." unique_id=331055531 instance=ExtResource("1_3dogw")]
-position = Vector2(596, 373)
+position = Vector2(596, 389)
 
 [node name="Gunpowder4" parent="." unique_id=968994960 instance=ExtResource("1_3dogw")]
-position = Vector2(604, 373)
+position = Vector2(604, 389)
+
+[node name="MediumExplosive" parent="." unique_id=258128927 instance=ExtResource("4_hb2xm")]
+position = Vector2(620, 380)
+
+[node name="Gunpowder24" parent="." unique_id=881278649 instance=ExtResource("1_3dogw")]
+position = Vector2(692, 324)
+
+[node name="Gunpowder25" parent="." unique_id=363983183 instance=ExtResource("1_3dogw")]
+position = Vector2(692, 332)
+
+[node name="Gunpowder26" parent="." unique_id=1169756234 instance=ExtResource("1_3dogw")]
+position = Vector2(692, 340)
