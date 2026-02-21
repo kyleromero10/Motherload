@@ -5,30 +5,31 @@
 [ext_resource type="Texture2D" uid="uid://dxjulgpt7bl64" path="res://Assets/green.png" id="3_mqndg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7o1bs"]
-size = Vector2(8, 8)
+size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q6o0e"]
-size = Vector2(6, 22)
+size = Vector2(14, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4qt53"]
-size = Vector2(22, 6)
+size = Vector2(46, 14)
 
 [node name="Start" type="StaticBody2D" unique_id=1955308037 node_paths=PackedStringArray("lightRadius") groups=["Gunpowder"]]
 script = ExtResource("1_4qt53")
-lightRadius = NodePath("Area2D")
+lightRadius = NodePath("LightRadius")
 litTexture = ExtResource("2_7o1bs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=94096051]
 shape = SubResource("RectangleShape2D_7o1bs")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1355504217]
-scale = Vector2(0.015, 0.015)
+position = Vector2(-2.3841858e-07, 9.536743e-07)
+scale = Vector2(0.03125, 0.03125)
 texture = ExtResource("3_mqndg")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=609359270]
+[node name="LightRadius" type="Area2D" parent="." unique_id=609359270]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1488154233]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightRadius" unique_id=1488154233]
 shape = SubResource("RectangleShape2D_q6o0e")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=811808017]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LightRadius" unique_id=811808017]
 shape = SubResource("RectangleShape2D_4qt53")

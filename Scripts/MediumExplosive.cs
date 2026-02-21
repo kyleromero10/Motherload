@@ -14,6 +14,11 @@ public partial class MediumExplosive : StaticBody2D
 
     public async void Lit()
     {
+        // force recheck on overlapping areas
+        explosionRadius.Monitoring = false;
+        explosionRadius.Monitoring = true;
+        // slight start delay
+        await ToSignal(GetTree(), SceneTree.SignalName.PhysicsFrame);
         // Mark that it has been lit and change its texture
         lit = true;
         GetChild<Sprite2D>(1).Texture = litTexture;
@@ -28,6 +33,8 @@ public partial class MediumExplosive : StaticBody2D
         // checks each node in its radius and lights the specific ones
         foreach(StaticBody2D node in explosionRadius.GetOverlappingBodies())
         {
+            if (node == this)
+                continue;
             // Gunpowder trails
             if(node is Gunpowder gunpowder)
             {

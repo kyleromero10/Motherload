@@ -33,6 +33,6 @@ texture = ExtResource("2_aho1p")
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_h8qnl")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="ExplosionRadius" unique_id=99433608]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ExplosionRadius" unique_id=99433608 groups=["Explosive"]]
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_37obr")
