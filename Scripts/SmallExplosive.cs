@@ -6,7 +6,6 @@ public partial class SmallExplosive : StaticBody2D
     [Export]
     public Area2D explosionRadius;
     public bool lit = false;
-
     [Export]
     public CompressedTexture2D litTexture;
     [Export]

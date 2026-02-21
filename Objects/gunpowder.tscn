@@ -13,9 +13,13 @@ size = Vector2(14, 46)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsbxx"]
 size = Vector2(46, 14)
 
-[node name="Gunpowder" type="StaticBody2D" unique_id=881278649 node_paths=PackedStringArray("lightRadius") groups=["Gunpowder"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_raxdw"]
+size = Vector2(16, 16)
+
+[node name="Gunpowder" type="StaticBody2D" unique_id=881278649 node_paths=PackedStringArray("lightRadius", "body") groups=["Gunpowder"]]
 script = ExtResource("1_c4utu")
 lightRadius = NodePath("LightRadius")
+body = NodePath("Area2D")
 litTexture = ExtResource("2_ivspr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=763072484]
@@ -33,3 +37,8 @@ shape = SubResource("RectangleShape2D_ivspr")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LightRadius" unique_id=1570632055]
 shape = SubResource("RectangleShape2D_fsbxx")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=972543263]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=581865219]
+shape = SubResource("RectangleShape2D_raxdw")

@@ -9,6 +9,7 @@ public partial class Gunpowder : StaticBody2D
 
     [Export]
     public CompressedTexture2D litTexture;
+
     public async void Lit()
     {
         // force recheck on overlapping areas
