@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d268l1jnr6re0"]
 
 [ext_resource type="Texture2D" uid="uid://d3pmx3yi7dvso" path="res://Assets/yellow.png" id="1_loe1f"]
-[ext_resource type="Script" uid="uid://bbbcsb4yco6mw" path="res://Objects/GoldVein.cs" id="1_vbdq0"]
+[ext_resource type="Script" uid="uid://bbbcsb4yco6mw" path="res://Scripts/GoldVein.cs" id="1_vbdq0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbdq0"]
 size = Vector2(16, 16)
