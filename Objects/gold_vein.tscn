@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d268l1jnr6re0"]
+
+[ext_resource type="Texture2D" uid="uid://d3pmx3yi7dvso" path="res://Assets/yellow.png" id="1_loe1f"]
+[ext_resource type="Script" uid="uid://bbbcsb4yco6mw" path="res://Objects/GoldVein.cs" id="1_vbdq0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbdq0"]
+size = Vector2(16, 16)
+
+[node name="GoldVein" type="StaticBody2D" unique_id=1257493933]
+script = ExtResource("1_vbdq0")
+isGoal = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2005246895]
+shape = SubResource("RectangleShape2D_vbdq0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1683816681]
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("1_loe1f")
