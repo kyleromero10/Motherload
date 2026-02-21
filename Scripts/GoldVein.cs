@@ -5,7 +5,7 @@ using System.Reflection.Metadata.Ecma335;
 
 public partial class GoldVein : StaticBody2D
 {
-    public bool explode = false;
+    public bool exploded = false;
     [Export] public bool isGoal = false;
     [Export] public GameMaster gameMaster;
     [Signal] public delegate void LevelEndEventHandler();
@@ -13,14 +13,14 @@ public partial class GoldVein : StaticBody2D
     public override void _Ready()
     {
         base._Ready();
-        gameMaster = GetNode<GameMaster>("/root/GameMaster");
+        gameMaster = GetNode<GameMaster>("/root/Level/GameMaster");
     }
 
     public async void Explode()
     {
         // Mark that it has been lit and change its texture
-        explode = true;
-        GetChild<Sprite2D>(1).Visible = false;
+        exploded = true;
+        Visible = false;
 
         if(isGoal)
         {

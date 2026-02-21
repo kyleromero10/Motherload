@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://iyd5jatsosdl"]
+
+[ext_resource type="PackedScene" uid="uid://bbrjp5jkta8im" path="res://Objects/game_master.tscn" id="1_tlrj7"]
+[ext_resource type="PackedScene" uid="uid://c78c1i3xf7rie" path="res://Objects/gunpowder.tscn" id="1_y0kbc"]
+[ext_resource type="PackedScene" uid="uid://ckdteieu14e4u" path="res://Objects/start.tscn" id="2_tlrj7"]
+[ext_resource type="PackedScene" uid="uid://dbg174fsrgghc" path="res://Objects/small_explosive.tscn" id="3_lolrf"]
+[ext_resource type="PackedScene" uid="uid://c7308w8f83l5o" path="res://Objects/medium_explosive.tscn" id="4_50xvw"]
+[ext_resource type="PackedScene" uid="uid://drgjgxktlxob2" path="res://Objects/small_gold_vein.tscn" id="6_50xvw"]
+[ext_resource type="PackedScene" uid="uid://d268l1jnr6re0" path="res://Objects/gold_vein.tscn" id="7_lnvv5"]
+
+[node name="Level" type="Node2D" unique_id=1722796830]
+
+[node name="GameMaster" parent="." unique_id=349084835 instance=ExtResource("1_tlrj7")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1830422474]
+position = Vector2(576, 320)
+
+[node name="Gunpowder5" parent="." unique_id=748379226 instance=ExtResource("1_y0kbc")]
+position = Vector2(580, 324)
+
+[node name="Gunpowder6" parent="." unique_id=2016442336 instance=ExtResource("1_y0kbc")]
+position = Vector2(588, 324)
+
+[node name="Gunpowder7" parent="." unique_id=1999313996 instance=ExtResource("1_y0kbc")]
+position = Vector2(596, 324)
+
+[node name="Gunpowder8" parent="." unique_id=311216697 instance=ExtResource("1_y0kbc")]
+position = Vector2(604, 324)
+
+[node name="Gunpowder9" parent="." unique_id=498279191 instance=ExtResource("1_y0kbc")]
+position = Vector2(612, 324)
+
+[node name="Gunpowder10" parent="." unique_id=1283385200 instance=ExtResource("1_y0kbc")]
+position = Vector2(620, 324)
+
+[node name="Gunpowder11" parent="." unique_id=219814567 instance=ExtResource("1_y0kbc")]
+position = Vector2(620, 316)
+
+[node name="Gunpowder12" parent="." unique_id=159468088 instance=ExtResource("1_y0kbc")]
+position = Vector2(620, 308)
+
+[node name="Gunpowder13" parent="." unique_id=30718738 instance=ExtResource("1_y0kbc")]
+position = Vector2(620, 300)
+
+[node name="Gunpowder14" parent="." unique_id=2092948790 instance=ExtResource("1_y0kbc")]
+position = Vector2(628, 300)
+
+[node name="Gunpowder15" parent="." unique_id=1010687819 instance=ExtResource("1_y0kbc")]
+position = Vector2(636, 300)
+
+[node name="Gunpowder16" parent="." unique_id=119470947 instance=ExtResource("1_y0kbc")]
+position = Vector2(612, 300)
+
+[node name="Gunpowder17" parent="." unique_id=1669292690 instance=ExtResource("1_y0kbc")]
+position = Vector2(604, 300)
+
+[node name="Gunpowder18" parent="." unique_id=589446538 instance=ExtResource("1_y0kbc")]
+position = Vector2(596, 300)
+
+[node name="Gunpowder19" parent="." unique_id=1918225788 instance=ExtResource("1_y0kbc")]
+position = Vector2(588, 300)
+
+[node name="Gunpowder20" parent="." unique_id=983617074 instance=ExtResource("2_tlrj7")]
+position = Vector2(572, 324)
+
+[node name="SmallExplosive" parent="." unique_id=636072833 instance=ExtResource("3_lolrf")]
+position = Vector2(584, 288)
+
+[node name="Gunpowder21" parent="." unique_id=129870142 instance=ExtResource("1_y0kbc")]
+position = Vector2(532, 316)
+
+[node name="Gunpowder22" parent="." unique_id=1047672138 instance=ExtResource("1_y0kbc")]
+position = Vector2(532, 324)
+
+[node name="Gunpowder23" parent="." unique_id=295166323 instance=ExtResource("1_y0kbc")]
+position = Vector2(532, 332)
+
+[node name="SmallExplosive2" parent="." unique_id=29670353 instance=ExtResource("3_lolrf")]
+position = Vector2(536, 344)
+
+[node name="SmallExplosive3" parent="." unique_id=2086645666 instance=ExtResource("3_lolrf")]
+position = Vector2(536, 384)
+
+[node name="Gunpowder" parent="." unique_id=272507943 instance=ExtResource("1_y0kbc")]
+position = Vector2(580, 389)
+
+[node name="Gunpowder2" parent="." unique_id=1614344071 instance=ExtResource("1_y0kbc")]
+position = Vector2(588, 389)
+
+[node name="Gunpowder3" parent="." unique_id=331055531 instance=ExtResource("1_y0kbc")]
+position = Vector2(596, 389)
+
+[node name="Gunpowder4" parent="." unique_id=968994960 instance=ExtResource("1_y0kbc")]
+position = Vector2(604, 389)
+
+[node name="MediumExplosive" parent="." unique_id=258128927 instance=ExtResource("4_50xvw")]
+position = Vector2(620, 380)
+
+[node name="Gunpowder24" parent="." unique_id=881278649 instance=ExtResource("1_y0kbc")]
+position = Vector2(692, 324)
+
+[node name="Gunpowder25" parent="." unique_id=363983183 instance=ExtResource("1_y0kbc")]
+position = Vector2(692, 332)
+
+[node name="Gunpowder26" parent="." unique_id=1169756234 instance=ExtResource("1_y0kbc")]
+position = Vector2(692, 340)
+
+[node name="SmallGoldVein" parent="." unique_id=1257493933 instance=ExtResource("6_50xvw")]
+position = Vector2(489, 398)
+
+[node name="SmallGoldVein2" parent="." unique_id=1600984778 instance=ExtResource("6_50xvw")]
+position = Vector2(540, 265)
+
+[node name="GoldVein" parent="." unique_id=1610173891 instance=ExtResource("7_lnvv5")]
+position = Vector2(655, 444)

@@ -46,6 +46,11 @@ public partial class SmallExplosive : StaticBody2D
                 if(!mediumExplosive.lit)
                     mediumExplosive.Lit();
             }
+            else if(node is GoldVein goldVein)
+            {
+                if(!goldVein.exploded)
+                    goldVein.Explode();
+            }
         }
         // deletes itself because it was causing lag by staying in the world
         QueueFree();
