@@ -7,9 +7,24 @@ public partial class Start : StaticBody2D
     [Export]
     public Area2D lightRadius;
     public bool lit = false;
-
     [Export]
     public CompressedTexture2D litTexture;
+    [Export] public GameMaster gameMaster;
+    [Export] public BuildManager buildManager;
+    [Export] public TileMapLayer tileMap;
+    public Vector2 snappedWorld;
+    public override void _Ready()
+    {
+        base._Ready();
+        buildManager = GetNode<BuildManager>("/root/Level");
+        tileMap = GetNode<TileMapLayer>("/root/Level/TileMapLayer");
+        // gets its position and send it to the builders dictionary
+        Vector2 localPos = tileMap.ToLocal(this.GlobalPosition);
+        Vector2I cell = tileMap.LocalToMap(localPos);
+        Vector2 snappedLocal = tileMap.MapToLocal(cell);
+        snappedWorld = tileMap.ToGlobal(snappedLocal);
+        buildManager.occupiedCells.Add(snappedWorld, this);
+    }
 
     public override void _Process(double delta)
     {

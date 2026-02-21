@@ -14,9 +14,13 @@ size = Vector2(27.5, 15.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37obr"]
 size = Vector2(15.5, 27.5)
 
-[node name="SmallExplosive" type="StaticBody2D" unique_id=258128927 node_paths=PackedStringArray("explosionRadius") groups=["Explosive"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcoyj"]
+size = Vector2(16, 16)
+
+[node name="SmallExplosive" type="StaticBody2D" unique_id=258128927 node_paths=PackedStringArray("explosionRadius", "body") groups=["Explosive"]]
 script = ExtResource("1_k2euc")
 explosionRadius = NodePath("ExplosionRadius")
+body = NodePath("Area2D")
 litTexture = ExtResource("2_qcoyj")
 explodedTexture = ExtResource("3_uo32y")
 
@@ -36,3 +40,8 @@ shape = SubResource("RectangleShape2D_h8qnl")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ExplosionRadius" unique_id=99433608 groups=["Explosive"]]
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_37obr")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1344499549]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1345088183]
+shape = SubResource("RectangleShape2D_qcoyj")

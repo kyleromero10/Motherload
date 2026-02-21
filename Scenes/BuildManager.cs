@@ -1,8 +1,10 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class BuildManager : Node2D
 {
+    public Dictionary<Vector2, StaticBody2D> occupiedCells = new();
     [Export]
     public TileMapLayer tileMap;
     [Export]
@@ -39,7 +41,7 @@ public partial class BuildManager : Node2D
             placeableStatus = !placeableStatus;
         }
         // placing an object
-        if (Input.IsActionJustPressed("left_click"))
+        if (Input.IsActionPressed("left_click"))
         {
             PlaceObject(activeObject);
         }
@@ -68,6 +70,18 @@ public partial class BuildManager : Node2D
         // if placable spot then places the active object
         if(GetIsPlaceable())
         {
+            // makes sure the object can replace others without stacking
+            if(occupiedCells.ContainsKey(snappedWorld))
+            {
+                var overlappingObject = occupiedCells[snappedWorld];
+                // will not replace start or gold
+                if(overlappingObject is Start || overlappingObject is GoldVein)
+                {
+                    return;
+                }
+                occupiedCells.Remove(snappedWorld);
+                overlappingObject.QueueFree();
+            }
             switch (activeObject)
             {
                 case 1:
@@ -75,18 +89,21 @@ public partial class BuildManager : Node2D
                     spawnedGunpowder.GlobalPosition = snappedWorld;
                     GetTree().CurrentScene.AddChild(spawnedGunpowder);
                     spawnedGunpowder.ForceUpdateTransform();
+                    occupiedCells.Add(snappedWorld, spawnedGunpowder);
                     break;
                 case 2:
                     var spawnedSmallExplosive = smallExplosive.Instantiate<SmallExplosive>();
                     spawnedSmallExplosive.GlobalPosition = snappedWorld;
                     GetTree().CurrentScene.AddChild(spawnedSmallExplosive);
                     spawnedSmallExplosive.ForceUpdateTransform();
+                    occupiedCells.Add(snappedWorld, spawnedSmallExplosive);
                     break;
                 case 3:
                     var spawnedMediumExplosive = mediumExplosive.Instantiate<MediumExplosive>();
                     spawnedMediumExplosive.GlobalPosition = snappedWorld;
                     GetTree().CurrentScene.AddChild(spawnedMediumExplosive);
                     spawnedMediumExplosive.ForceUpdateTransform();
+                    occupiedCells.Add(snappedWorld, spawnedMediumExplosive);
                     break;
                 default:
                     // can change to allow start to be placeable
@@ -94,6 +111,7 @@ public partial class BuildManager : Node2D
                     spawnedStart.GlobalPosition = snappedWorld;
                     GetTree().CurrentScene.AddChild(spawnedStart);
                     spawnedStart.ForceUpdateTransform();
+                    occupiedCells.Add(snappedWorld, spawnedStart);
                     break;
             }
         } 
