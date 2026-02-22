@@ -17,7 +17,7 @@ public partial class Start : StaticBody2D
     {
         base._Ready();
         buildManager = GetNode<BuildManager>("/root/Level");
-        tileMap = GetNode<TileMapLayer>("/root/Level/TileMapLayer");
+        tileMap = GetNode<TileMapLayer>("/root/Level/PlaceableTiles");
         // gets its position and send it to the builders dictionary
         Vector2 localPos = tileMap.ToLocal(this.GlobalPosition);
         Vector2I cell = tileMap.LocalToMap(localPos);
