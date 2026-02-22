@@ -6,15 +6,17 @@ public partial class Gunpowder : StaticBody2D
 	[Export]
 	public Area2D lightRadius;
 	public bool lit = false;
-	
+	[Export] public BuildManager buildManager;
+    public Vector2 snappedWorld;
 	public override void _Ready()
 	{
 		var sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		sprite.Play("idle");
 	}
-
+    
 	public async void Lit()
 	{
+        buildManager = GetNode<BuildManager>("/root/Level");
 		lightRadius.Monitoring = false;
 		lightRadius.Monitoring = true;
 
@@ -59,6 +61,10 @@ public partial class Gunpowder : StaticBody2D
 			}
 		}
 		// deletes itself because it was causing lag by staying in the world
-		QueueFree();
+		Delete();
 	}
+    public void Delete()
+    {
+        QueueFree();
+    }
 }

@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://c7308w8f83l5o"]
+[gd_scene format=3 uid="uid://c5007easogfbk"]
 
 [ext_resource type="Script" uid="uid://rtjvswctov0p" path="res://Scripts/MediumExplosive.cs" id="1_w7lp3"]
 [ext_resource type="Texture2D" uid="uid://k57xuuf2ngv" path="res://Assets/Sprites/ExplosionSprites.png" id="4_jcrcm"]
+[ext_resource type="Texture2D" uid="uid://1nbekudvwlt8" path="res://Assets/edge.png" id="4_pns8t"]
 [ext_resource type="Texture2D" uid="uid://c0ewu5idymteo" path="res://Assets/Sprites/MediumBarrelSprites.png" id="5_0i5g4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bkcn3"]
@@ -168,15 +169,18 @@ script = ExtResource("1_w7lp3")
 explosionRadius = NodePath("ExplosionRadius")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=272920546]
+position = Vector2(-24.000004, -24.000004)
 shape = SubResource("RectangleShape2D_bkcn3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1755886941]
 texture_filter = 1
-position = Vector2(1.9073486e-06, 1.9073486e-06)
+position = Vector2(-24, -24)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_6p71o")
 animation = &"idle"
 
 [node name="ExplosionRadius" type="Area2D" parent="." unique_id=507268297]
+position = Vector2(-24.000004, -24.000004)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionRadius" unique_id=751170614]
 scale = Vector2(4, 4)
@@ -187,6 +191,30 @@ scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_37obr")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=304125339]
+position = Vector2(-24.000004, -24.000004)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=972408443]
 shape = SubResource("RectangleShape2D_pns8t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1053701419]
+position = Vector2(-24.000015, -212)
+scale = Vector2(0.71874994, 0.48437506)
+texture = ExtResource("4_pns8t")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1575694313]
+position = Vector2(162.69568, -24)
+rotation = 1.5707964
+scale = Vector2(0.71874994, 0.50509506)
+texture = ExtResource("4_pns8t")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1659599149]
+position = Vector2(-24, 168)
+rotation = 3.1415927
+scale = Vector2(0.71874994, 0.48437506)
+texture = ExtResource("4_pns8t")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1376494423]
+position = Vector2(-209, -24)
+rotation = 4.712389
+scale = Vector2(0.71874994, 0.5117188)
+texture = ExtResource("4_pns8t")

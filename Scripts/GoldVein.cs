@@ -60,9 +60,4 @@ public partial class GoldVein : StaticBody2D
 			QueueFree();
 		}
 	}
-
-
-
-
-
 }

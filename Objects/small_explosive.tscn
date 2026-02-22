@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dbg174fsrgghc"]
 
 [ext_resource type="Script" uid="uid://dyuykssulldfy" path="res://Scripts/SmallExplosive.cs" id="1_k2euc"]
+[ext_resource type="Texture2D" uid="uid://1nbekudvwlt8" path="res://Assets/edge.png" id="4_qcoyj"]
 [ext_resource type="Texture2D" uid="uid://k57xuuf2ngv" path="res://Assets/Sprites/ExplosionSprites.png" id="4_uo32y"]
 [ext_resource type="Texture2D" uid="uid://djh0705lloh27" path="res://Assets/Sprites/SmallBarrelSprites.png" id="5_pwddi"]
 
@@ -148,10 +149,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8qnl"]
-size = Vector2(92, 60)
+size = Vector2(76, 44)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37obr"]
-size = Vector2(60, 92)
+size = Vector2(44, 76)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qcoyj"]
 size = Vector2(112, 112)
@@ -175,7 +176,7 @@ animation = &"explode"
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_h8qnl")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="ExplosionRadius" unique_id=99433608 groups=["Explosive"]]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ExplosionRadius" unique_id=99433608]
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_37obr")
 
@@ -183,3 +184,26 @@ shape = SubResource("RectangleShape2D_37obr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1345088183]
 shape = SubResource("RectangleShape2D_qcoyj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=606968785]
+position = Vector2(6.67572e-06, -92)
+scale = Vector2(0.34375, 0.23437497)
+texture = ExtResource("4_qcoyj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=97703627]
+position = Vector2(0, 92)
+rotation = 3.1415927
+scale = Vector2(0.34375, 0.23437497)
+texture = ExtResource("4_qcoyj")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=584722980]
+position = Vector2(88.82834, 7.3159113e-06)
+rotation = 1.5707964
+scale = Vector2(0.34375, 0.26238927)
+texture = ExtResource("4_qcoyj")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1710826784]
+position = Vector2(-88.828, 0)
+rotation = 4.712389
+scale = Vector2(0.34375, 0.26238927)
+texture = ExtResource("4_qcoyj")

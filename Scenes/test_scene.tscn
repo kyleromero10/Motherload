@@ -5,9 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://ckdteieu14e4u" path="res://Objects/start.tscn" id="2_r5l72"]
 [ext_resource type="PackedScene" uid="uid://dbg174fsrgghc" path="res://Objects/small_explosive.tscn" id="3_50ct6"]
 [ext_resource type="PackedScene" uid="uid://drbg770l7n7pt" path="res://Objects/non_placeable_small.tscn" id="3_ak5v8"]
-[ext_resource type="PackedScene" uid="uid://c7308w8f83l5o" path="res://Objects/medium_explosive.tscn" id="4_hb2xm"]
+[ext_resource type="PackedScene" uid="uid://c5007easogfbk" path="res://Objects/medium_explosive.tscn" id="4_hb2xm"]
 [ext_resource type="Texture2D" uid="uid://bv2leecvntnug" path="res://Assets/Sprites/MapTiles.png" id="5_ak5v8"]
 [ext_resource type="Texture2D" uid="uid://b5ran7mu4wcu6" path="res://Assets/Sprites/PlaceableTiles.png" id="6_x033f"]
+[ext_resource type="PackedScene" uid="uid://cjptmp4y1a61r" path="res://Objects/non_placeable_medium.tscn" id="7_040rt"]
 [ext_resource type="PackedScene" uid="uid://bbrjp5jkta8im" path="res://Objects/game_master.tscn" id="7_d3awe"]
 [ext_resource type="Script" uid="uid://bfnvx8c2odse0" path="res://Scenes/PlayerController.cs" id="8_4qg1e"]
 [ext_resource type="PackedScene" path="res://Scenes/win_screen.tscn" id="8_dhrl2"]
@@ -16,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://drgjgxktlxob2" path="res://Objects/small_gold_vein.tscn" id="10_bwjpn"]
 [ext_resource type="PackedScene" uid="uid://d268l1jnr6re0" path="res://Objects/gold_vein.tscn" id="11_ibmi3"]
 [ext_resource type="Texture2D" uid="uid://8y4bsg3llyow" path="res://Assets/Sprites/DestructibleSprites.png" id="11_tnimv"]
-[ext_resource type="PackedScene" path="res://Objects/cave_support.tscn" id="14_tnimv"]
+[ext_resource type="PackedScene" uid="uid://cw30ul5p1232k" path="res://Objects/cave_support.tscn" id="14_tnimv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4qg1e"]
 texture = ExtResource("6_x033f")
@@ -144,6 +145,7 @@ gunpowder = ExtResource("1_3dogw")
 smallExplosive = ExtResource("3_50ct6")
 mediumExplosive = ExtResource("4_hb2xm")
 errorObject = ExtResource("3_ak5v8")
+errorObjectMedium = ExtResource("7_040rt")
 
 [node name="GameMaster" parent="." unique_id=349084835 instance=ExtResource("7_d3awe")]
 
