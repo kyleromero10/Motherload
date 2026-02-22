@@ -4,82 +4,82 @@ using System.Reflection.Metadata.Ecma335;
 
 public partial class Start : StaticBody2D
 {
-    [Export]
-    public Area2D lightRadius;
-    public bool lit = false;
-    [Export]
-    public CompressedTexture2D litTexture;
-    [Export] public GameMaster gameMaster;
-    [Export] public BuildManager buildManager;
-    [Export] public TileMapLayer tileMap;
-    public Vector2 snappedWorld;
-    public override void _Ready()
-    {
-        base._Ready();
-        buildManager = GetNode<BuildManager>("/root/Level");
-        tileMap = GetNode<TileMapLayer>("/root/Level/PlaceableTiles");
-        // gets its position and send it to the builders dictionary
-        Vector2 localPos = tileMap.ToLocal(this.GlobalPosition);
-        Vector2I cell = tileMap.LocalToMap(localPos);
-        Vector2 snappedLocal = tileMap.MapToLocal(cell);
-        snappedWorld = tileMap.ToGlobal(snappedLocal);
-        buildManager.occupiedCells.Add(snappedWorld, this);
-    }
+	[Export]
+	public Area2D lightRadius;
+	public bool lit = false;
+	[Export]
+	public CompressedTexture2D litTexture;
+	[Export] public GameMaster gameMaster;
+	[Export] public BuildManager buildManager;
+	[Export] public TileMapLayer tileMap;
+	public Vector2 snappedWorld;
+	public override void _Ready()
+	{
+		base._Ready();
+		buildManager = GetNode<BuildManager>("/root/Level");
+		tileMap = GetNode<TileMapLayer>("/root/Level/PlaceableTiles");
+		// gets its position and send it to the builders dictionary
+		Vector2 localPos = tileMap.ToLocal(this.GlobalPosition);
+		Vector2I cell = tileMap.LocalToMap(localPos);
+		Vector2 snappedLocal = tileMap.MapToLocal(cell);
+		snappedWorld = tileMap.ToGlobal(snappedLocal);
+		buildManager.occupiedCells.Add(snappedWorld, this);
+	}
 
-    public override void _Process(double delta)
-    {
-        base._Process(delta);
-        // when space is pressed it will light the start node
-        if (Input.IsActionJustPressed("ui_start"))
-        {
-            Lit();
-        }
-    }
+	public override void _Process(double delta)
+	{
+		base._Process(delta);
+		// when space is pressed it will light the start node
+		if (Input.IsActionJustPressed("ui_start"))
+		{
+			Lit();
+		}
+	}
 
 
-    public async void Lit()
-    {
-        // force recheck on overlapping areas
-        lightRadius.Monitoring = false;
-        lightRadius.Monitoring = true;
-        // slight start delay
-        await ToSignal(GetTree(), SceneTree.SignalName.PhysicsFrame);
-        // Mark that it has been lit and change its texture
-        lit = true;
-        GetChild<Sprite2D>(1).Texture = litTexture;
-        // wait then light nearby
-        await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
-        LightNearby();
-    }
+	public async void Lit()
+	{
+		// force recheck on overlapping areas
+		lightRadius.Monitoring = false;
+		lightRadius.Monitoring = true;
+		// slight start delay
+		await ToSignal(GetTree(), SceneTree.SignalName.PhysicsFrame);
+		// Mark that it has been lit and change its texture
+		lit = true;
+		GetChild<Sprite2D>(1).Texture = litTexture;
+		// wait then light nearby
+		await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
+		LightNearby();
+	}
 
-    public void LightNearby()
-    {
-        // checks each node in its radius and lights the specific ones
-        foreach(StaticBody2D node in lightRadius.GetOverlappingBodies())
-        {
-            if (node == this)
-                continue;
-            // Gunpowder trails
-            if(node is Gunpowder gunpowder)
-            {
-                if(!gunpowder.lit)
-                    gunpowder.Lit();
-            }
-            // small explosives
-            else if(node is SmallExplosive smallExplosive)
-            {
-                if(!smallExplosive.lit)
-                    smallExplosive.Lit();
-            }
-            // Medium Explosives
-            else if(node is MediumExplosive mediumExplosive)
-            {
-                if(!mediumExplosive.lit)
-                    mediumExplosive.Lit();
-            }
-        }
-        // deletes itself because it was causing lag by staying in the world
-        QueueFree();
-    }    
-    
+	public void LightNearby()
+	{
+		// checks each node in its radius and lights the specific ones
+		foreach(StaticBody2D node in lightRadius.GetOverlappingBodies())
+		{
+			if (node == this)
+				continue;
+			// Gunpowder trails
+			if(node is Gunpowder gunpowder)
+			{
+				if(!gunpowder.lit)
+					gunpowder.Lit();
+			}
+			// small explosives
+			else if(node is SmallExplosive smallExplosive)
+			{
+				if(!smallExplosive.lit)
+					smallExplosive.Lit();
+			}
+			// Medium Explosives
+			else if(node is MediumExplosive mediumExplosive)
+			{
+				if(!mediumExplosive.lit)
+					mediumExplosive.Lit();
+			}
+		}
+		// deletes itself because it was causing lag by staying in the world
+		QueueFree();
+	}    
+	
 }

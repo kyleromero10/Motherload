@@ -58,7 +58,7 @@ public partial class SmallExplosive : StaticBody2D
 				if(!goldVein.exploded)
 					goldVein.Explode();
 			}
-            else if(node is CaveSupport caveSupport)
+			else if(node is CaveSupport caveSupport)
 			{
 				if(!caveSupport.exploded)
 					caveSupport.Explode();
