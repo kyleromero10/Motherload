@@ -37,7 +37,10 @@ public partial class GameMaster : Node
 	public void EndLevel()
 	{
 		// changes the scene to the win scene
+		UI.GetNode<Label>("SupportHealth").Text = "Support Health: " + 0;
+		winScreen.GetNode<Label>("Label2").Text = "Gold Collected: " + goldCollected;
 		winScreen.Visible = true;
+		
 		GD.Print("Level Ended");
 		AudioManager.I?.PlayVictory();
 		AudioManager.I?.StopBgm();

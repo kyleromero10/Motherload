@@ -47,13 +47,28 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="Label2" type="Label" parent="." unique_id=596659915]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4357639
+anchor_top = 0.4675926
+anchor_right = 0.62963325
+anchor_bottom = 0.5607381
+offset_right = -78.78247
+offset_bottom = -24.524994
+theme_override_colors/font_color = Color(0.8039216, 0.25882354, 0, 1)
+text = "Gold Collected: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="WinButton" type="Button" parent="." unique_id=81951887]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.4375
 anchor_top = 0.5308642
 anchor_right = 0.5607639
-anchor_bottom = 0.56635803
+anchor_bottom = 0.5802469
 theme_override_colors/font_color = Color(0.8039216, 0.25882354, 0, 1)
 theme_override_colors/font_focus_color = Color(0.5921569, 0.18039216, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.5921569, 0.18039216, 0, 1)

@@ -303,18 +303,21 @@ position = Vector2(-608, 96)
 script = ExtResource("8_4qg1e")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1830422474]
+visible = false
 position = Vector2(576, 320)
 rotation = 3.1415927
 scale = Vector2(0.17607665, -1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=85933240]
 
-[node name="WinScreen" parent="CanvasLayer" unique_id=1180290462 instance=ExtResource("8_dhrl2")]
-visible = false
-
-[node name="LoseScreen" parent="CanvasLayer" unique_id=311924164 instance=ExtResource("9_i0miu")]
-visible = false
-
 [node name="MainUI" parent="CanvasLayer" unique_id=1342317943 node_paths=PackedStringArray("startScript", "buildManager") instance=ExtResource("18_i0miu")]
 startScript = NodePath("../../Start")
 buildManager = NodePath("../..")
+
+[node name="WinScreen" parent="CanvasLayer" unique_id=1180290462 instance=ExtResource("8_dhrl2")]
+visible = false
+mouse_filter = 2
+
+[node name="LoseScreen" parent="CanvasLayer" unique_id=311924164 instance=ExtResource("9_i0miu")]
+visible = false
+mouse_filter = 2
