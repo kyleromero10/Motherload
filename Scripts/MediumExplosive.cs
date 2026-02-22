@@ -8,7 +8,11 @@ public partial class MediumExplosive : StaticBody2D
 
 	private AnimatedSprite2D sprite;
 	public bool lit = false;
-
+    [Export] public BuildManager buildManager;
+    public Vector2 snappedWorld;
+    public Vector2 snappedWorld2nd;
+    public Vector2 snappedWorld3rd;
+    public Vector2 snappedWorld4th;
 	public override void _Ready()
 	{
 		sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
@@ -19,12 +23,14 @@ public partial class MediumExplosive : StaticBody2D
 		// make sure explosive is not lit initially
 		lit = false;
 	}
+    
 
 	public async void Lit()
 	{
 		if (lit)
 			return;
 
+        buildManager = GetNode<BuildManager>("/root/Level");
 		// force the explosion radius to recheck overlapping bodies
 		explosionRadius.Monitoring = false;
 		explosionRadius.Monitoring = true;
@@ -63,11 +69,17 @@ public partial class MediumExplosive : StaticBody2D
 				mediumExplosive.Lit();
 			else if (node is GoldVein goldVein && !goldVein.exploded)
 				goldVein.Explode();
+            else if (node is CaveSupport caveSupport && !caveSupport.exploded)
+                caveSupport.Explode();
 		}
 
 		// wait for the explosion animation to finish before removing
 		await ToSignal(sprite, AnimatedSprite2D.SignalName.AnimationFinished);
 
-		QueueFree();
+		Delete();
 	}
+    public void Delete()
+    {
+        QueueFree();
+    }
 }
