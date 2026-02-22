@@ -6,7 +6,13 @@ public partial class BuildManager : Node2D
 {
 	public Dictionary<Vector2, StaticBody2D> occupiedCells = new();
 	[Export]
-	public TileMapLayer tileMap;
+	public TileMapLayer placeableTileMap;
+    [Export]
+	public TileMapLayer unplaceableTileMap;
+    [Export]
+	public TileMapLayer wallsTileMap;
+    [Export]
+	public TileMapLayer destructablesTileMap;
 	[Export]
 	public PackedScene start;
 	[Export]
@@ -90,6 +96,7 @@ public partial class BuildManager : Node2D
 					GetTree().CurrentScene.AddChild(spawnedGunpowder);
 					spawnedGunpowder.ForceUpdateTransform();
 					occupiedCells.Add(snappedWorld, spawnedGunpowder);
+                    GD.Print(snappedWorld);
 					break;
 				case 2:
 					var spawnedSmallExplosive = smallExplosive.Instantiate<SmallExplosive>();
@@ -121,21 +128,23 @@ public partial class BuildManager : Node2D
 	{
 		// Gets the mouse position and finds the global location
 		Vector2 mouseWorld = GetGlobalMousePosition();
-		Vector2 localPos = tileMap.ToLocal(mouseWorld);
-		Vector2I cell = tileMap.LocalToMap(localPos);
-		Vector2 snappedLocal = tileMap.MapToLocal(cell);
-		snappedWorld = tileMap.ToGlobal(snappedLocal);
+		Vector2 localPos = placeableTileMap.ToLocal(mouseWorld);
+		Vector2I cell = placeableTileMap.LocalToMap(localPos);
+		Vector2 snappedLocal = placeableTileMap.MapToLocal(cell);
+		snappedWorld = placeableTileMap.ToGlobal(snappedLocal);
 		// checks the source Id of the tilemap and looks for correct one
-		int sourceId = tileMap.GetCellSourceId(cell);
-		// -1 is nothing, 1 is maptiles, 0 is placeable tiles
-		if(sourceId == -1 || sourceId == 1)
-		{
-			return false;
-		} 
-		else
-		{
-			return true;
-		}
+		int placeableSourceId = placeableTileMap.GetCellSourceId(cell);
+		int unplacableSourceId = unplaceableTileMap.GetCellSourceId(cell);
+        int wallsSourceId = wallsTileMap.GetCellSourceId(cell);
+        int destructablesSourceId = destructablesTileMap.GetCellSourceId(cell);
+        if(placeableSourceId == -1 || unplacableSourceId == 0 || wallsSourceId == 0 || destructablesSourceId == 0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
 	}
 
 	public void ChangePreview()

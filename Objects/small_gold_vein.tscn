@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d3pmx3yi7dvso" path="res://Assets/yellow.png" id="2_0atpd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vbdq0"]
-size = Vector2(16, 16)
+size = Vector2(48, 48)
 
 [node name="SmallGoldVein" type="StaticBody2D" unique_id=1257493933]
 script = ExtResource("1_8vuwx")
@@ -13,5 +13,6 @@ script = ExtResource("1_8vuwx")
 shape = SubResource("RectangleShape2D_vbdq0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1683816681]
-scale = Vector2(0.03, 0.03)
+position = Vector2(0, 1.9073486e-06)
+scale = Vector2(0.12499999, 0.12499999)
 texture = ExtResource("2_0atpd")

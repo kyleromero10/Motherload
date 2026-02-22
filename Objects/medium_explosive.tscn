@@ -6,21 +6,20 @@
 [ext_resource type="Texture2D" uid="uid://blqwoy5rhbd3g" path="res://Assets/orange.png" id="4_gtvb8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bkcn3"]
-size = Vector2(24, 24)
+size = Vector2(112, 112)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8qnl"]
-size = Vector2(39.5, 23.5)
+size = Vector2(156, 92)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37obr"]
-size = Vector2(23.5, 39.5)
+size = Vector2(92, 156)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pns8t"]
-size = Vector2(24, 24)
+size = Vector2(112, 112)
 
-[node name="MediumExplosive" type="StaticBody2D" unique_id=258128927 node_paths=PackedStringArray("explosionRadius", "body") groups=["Explosive"]]
+[node name="MediumExplosive" type="StaticBody2D" unique_id=258128927 node_paths=PackedStringArray("explosionRadius") groups=["Explosive"]]
 script = ExtResource("1_w7lp3")
 explosionRadius = NodePath("ExplosionRadius")
-body = NodePath("Area2D")
 litTexture = ExtResource("2_jcrcm")
 explodedTexture = ExtResource("3_0i5g4")
 
@@ -28,8 +27,8 @@ explodedTexture = ExtResource("3_0i5g4")
 shape = SubResource("RectangleShape2D_bkcn3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=494421070]
-position = Vector2(1.0505319e-06, 1.4603138e-06)
-scale = Vector2(0.046875, 0.046875)
+position = Vector2(1.9073486e-06, 1.9073486e-06)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_gtvb8")
 
 [node name="ExplosionRadius" type="Area2D" parent="." unique_id=507268297]

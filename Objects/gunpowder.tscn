@@ -5,29 +5,28 @@
 [ext_resource type="Texture2D" uid="uid://dxjulgpt7bl64" path="res://Assets/green.png" id="2_ub36f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbnpu"]
-size = Vector2(16, 16)
+size = Vector2(48, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivspr"]
-size = Vector2(14, 46)
+size = Vector2(48, 112)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsbxx"]
-size = Vector2(46, 14)
+size = Vector2(112, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_raxdw"]
-size = Vector2(16, 16)
+size = Vector2(48, 48)
 
-[node name="Gunpowder" type="StaticBody2D" unique_id=881278649 node_paths=PackedStringArray("lightRadius", "body") groups=["Gunpowder"]]
+[node name="Gunpowder" type="StaticBody2D" unique_id=881278649 node_paths=PackedStringArray("lightRadius") groups=["Gunpowder"]]
 script = ExtResource("1_c4utu")
 lightRadius = NodePath("LightRadius")
-body = NodePath("Area2D")
 litTexture = ExtResource("2_ivspr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=763072484]
 shape = SubResource("RectangleShape2D_sbnpu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1607296508]
-position = Vector2(-2.3841858e-07, 9.536743e-07)
-scale = Vector2(0.03125, 0.03125)
+position = Vector2(9.536743e-07, 9.536743e-07)
+scale = Vector2(0.125, 0.125)
 texture = ExtResource("2_ub36f")
 
 [node name="LightRadius" type="Area2D" parent="." unique_id=488835113]

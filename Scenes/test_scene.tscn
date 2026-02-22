@@ -119,9 +119,12 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/1 = SubResource("TileSetAtlasSource_0g4ye")
 
-[node name="Level" type="Node2D" unique_id=1722796830 node_paths=PackedStringArray("tileMap")]
+[node name="Level" type="Node2D" unique_id=1722796830 node_paths=PackedStringArray("placeableTileMap", "unplaceableTileMap", "wallsTileMap", "destructablesTileMap")]
 script = ExtResource("1_ak5v8")
-tileMap = NodePath("PlaceableTiles")
+placeableTileMap = NodePath("PlaceableTiles")
+unplaceableTileMap = NodePath("UnplaceableTiles")
+wallsTileMap = NodePath("Walls1")
+destructablesTileMap = NodePath("Destructibles")
 start = ExtResource("2_r5l72")
 gunpowder = ExtResource("1_3dogw")
 smallExplosive = ExtResource("3_50ct6")
@@ -132,6 +135,7 @@ errorObject = ExtResource("3_ak5v8")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1830422474]
 position = Vector2(576, 320)
+scale = Vector2(-0.17607665, 1)
 
 [node name="PlaceableTiles" type="TileMapLayer" parent="." unique_id=548369635]
 texture_filter = 1
@@ -154,13 +158,13 @@ tile_map_data = PackedByteArray("AAASAA4AAQACAAEAAADw/wAAAQACAAEAAAD9////AQACAAE
 tile_set = SubResource("TileSet_soh27")
 
 [node name="Start" parent="." unique_id=1955308037 instance=ExtResource("2_r5l72")]
-position = Vector2(328, 152)
+position = Vector2(672, 480)
 
 [node name="SmallGoldVein" parent="." unique_id=1257493933 instance=ExtResource("10_bwjpn")]
-position = Vector2(312, 312)
+position = Vector2(96, 480)
 
 [node name="SmallGoldVein2" parent="." unique_id=202766392 instance=ExtResource("10_bwjpn")]
-position = Vector2(544, 312)
+position = Vector2(480, 160)
 
 [node name="GoldVein" parent="." unique_id=807482981 instance=ExtResource("11_ibmi3")]
-position = Vector2(664, 232)
+position = Vector2(-800, -32)
