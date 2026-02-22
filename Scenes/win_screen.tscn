@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://vek4mcg1bhp4"]
+
+[ext_resource type="Script" uid="uid://b3jjxauqslu4e" path="res://Scripts/WinButton.cs" id="1_l5sol"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a00f1"]
+bg_color = Color(0.65955025, 0.41346765, 1.92523e-07, 0.5764706)
+
+[node name="WinScreen" type="Control" unique_id=1180290462]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2099228095]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.30381945
+anchor_top = 0.30864197
+anchor_right = 0.6944444
+anchor_bottom = 0.61728394
+color = Color(1, 0.65882355, 0.18039216, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="ColorRect" unique_id=471843230]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+border_color = Color(0.47976202, 0.24856558, 1.4439226e-07, 1)
+border_width = 3.0
+
+[node name="Label" type="Label" parent="." unique_id=498856053]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.40364587
+anchor_top = 0.38271606
+anchor_right = 0.5975152
+anchor_bottom = 0.4900077
+offset_right = -78.78247
+offset_bottom = -24.524994
+scale = Vector2(1.545, 1.545)
+theme_override_colors/font_color = Color(0.8039216, 0.25882354, 0, 1)
+text = "Got the Gold!"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="WinButton" type="Button" parent="." unique_id=81951887]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4375
+anchor_top = 0.5308642
+anchor_right = 0.5607639
+anchor_bottom = 0.56635803
+theme_override_colors/font_color = Color(0.8039216, 0.25882354, 0, 1)
+theme_override_colors/font_focus_color = Color(0.5921569, 0.18039216, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.5921569, 0.18039216, 0, 1)
+theme_override_colors/font_hover_color = Color(0.5921569, 0.18039216, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_a00f1")
+text = "Return to Menu"
+flat = true
+script = ExtResource("1_l5sol")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="WinButton" to="WinButton" method="OnButtonPressed"]

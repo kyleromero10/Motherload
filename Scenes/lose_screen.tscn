@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://c5100uo5uegyl"]
+
+[ext_resource type="Script" uid="uid://b3jjxauqslu4e" path="res://Scripts/WinButton.cs" id="1_s2rrh"]
+[ext_resource type="Script" uid="uid://c7bu0vprqvsxt" path="res://Scripts/ResetButton.cs" id="2_488pv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a00f1"]
+bg_color = Color(0.65955025, 0.41346765, 1.92523e-07, 0.5764706)
+
+[node name="LoseScreen" type="Control" unique_id=1180290462]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2099228095]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.30381945
+anchor_top = 0.30864197
+anchor_right = 0.6944444
+anchor_bottom = 0.61728394
+color = Color(1, 0.65882355, 0.18039216, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="ColorRect" unique_id=471843230]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+border_color = Color(0.47976202, 0.24856558, 1.4439226e-07, 1)
+border_width = 3.0
+
+[node name="Label" type="Label" parent="." unique_id=498856053]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3515625
+anchor_top = 0.38117287
+anchor_right = 0.6560026
+anchor_bottom = 0.4884645
+offset_right = -123.714966
+offset_bottom = -24.524994
+scale = Vector2(1.545, 1.545)
+theme_override_colors/font_color = Color(0.8039216, 0.25882354, 0, 1)
+text = "You missed the motherload..."
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuButton" type="Button" parent="." unique_id=81951887]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4357639
+anchor_top = 0.55709875
+anchor_right = 0.5590278
+anchor_bottom = 0.5925926
+theme_override_colors/font_color = Color(0.8039216, 0.25882354, 0, 1)
+theme_override_colors/font_focus_color = Color(0.5921569, 0.18039216, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.5921569, 0.18039216, 0, 1)
+theme_override_colors/font_hover_color = Color(0.5921569, 0.18039216, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_a00f1")
+text = "Return to Menu"
+flat = true
+script = ExtResource("1_s2rrh")
+metadata/_edit_use_anchors_ = true
+
+[node name="ResetButton" type="Button" parent="." unique_id=7121542]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4331597
+anchor_top = 0.5
+anchor_right = 0.5564236
+anchor_bottom = 0.53549385
+theme_override_colors/font_color = Color(0.8039216, 0.25882354, 0, 1)
+theme_override_colors/font_focus_color = Color(0.5921569, 0.18039216, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.5921569, 0.18039216, 0, 1)
+theme_override_colors/font_hover_color = Color(0.5921569, 0.18039216, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_a00f1")
+text = "Try Again"
+flat = true
+script = ExtResource("2_488pv")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="MenuButton" to="MenuButton" method="OnButtonPressed"]
+[connection signal="pressed" from="ResetButton" to="ResetButton" method="OnButtonPressed"]

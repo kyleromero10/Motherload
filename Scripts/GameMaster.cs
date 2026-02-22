@@ -4,6 +4,8 @@ using System.IO;
 
 public partial class GameMaster : Node
 {
+	[Export] public Control winScreen;
+	[Export] public Control loseScreen;
 
 	public int goldCollected;
 	public int totalHealth = 3;
@@ -25,6 +27,7 @@ public partial class GameMaster : Node
 	public void EndLevel()
 	{
 		// changes the scene to the win scene
+		winScreen.Visible = true;
 		GD.Print("Level Ended");
 		
 	}
@@ -32,6 +35,7 @@ public partial class GameMaster : Node
 	public void FailedLevel()
 	{
 		// changes the scene to the failed scene
+		loseScreen.Visible = true;
 		GD.Print("Level Failed");
 		
 	}
