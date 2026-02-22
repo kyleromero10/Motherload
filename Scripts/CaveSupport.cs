@@ -35,11 +35,13 @@ public partial class CaveSupport : StaticBody2D
 		destructiblesTileMap.SetCell(tileMap.LocalToMap(snappedWorld), 1, new Vector2I (7, 2));
 		if(gameMaster.totalHealth <= 1)
 		{
+			AudioManager.I?.PlayDemerit();
 			EmitSignal("LevelFailed");
 		}
 		else
 		{
 			gameMaster.totalHealth--;
+			AudioManager.I?.PlayDemerit();
 			GD.Print("Structual Health Remaining: " + gameMaster.totalHealth);
 			// wait to explode
 			await ToSignal(GetTree().CreateTimer(2f), SceneTreeTimer.SignalName.Timeout);

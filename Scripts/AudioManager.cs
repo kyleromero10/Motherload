@@ -4,6 +4,9 @@ using System.Collections.Generic;
 public partial class AudioManager : Node
 {
 	public static AudioManager I { get; private set; }
+	
+	private double _gunpowderPlaceNextTime = 0.0;
+	[Export] public float GunpowderPlaceCooldownSec { get; set; } = 0.08f; // ~12.5 plays/sec
 
 	// Drag your BgmPlayer node here in Inspector (or it auto-finds by name).
 	[Export] public AudioStreamPlayer BgmPlayer { get; set; }
@@ -20,6 +23,7 @@ public partial class AudioManager : Node
 	[Export] public AudioStream LargeBombExplode { get; set; }
 	[Export] public AudioStream GunpowderLit { get; set; }
 	[Export] public AudioStream GoldCollect { get; set; }
+	[Export] public AudioStream Demerit { get; set; }
 
 	// Music clip
 	[Export] public AudioStream StageBgm { get; set; }
@@ -86,11 +90,20 @@ public partial class AudioManager : Node
 
 	public void PlayUiClick() => PlaySfx(ButtonPress);
 	public void PlayBombPlace() => PlaySfx(BombPlace);
-	public void PlayGunpowderPlace() => PlaySfx(GunpowderPlace);
+	public void PlayGunpowderPlace()
+{
+	double now = Time.GetTicksMsec() / 1000.0;
+	if (now < _gunpowderPlaceNextTime)
+		return;
+
+	_gunpowderPlaceNextTime = now + GunpowderPlaceCooldownSec;
+	PlaySfx(GunpowderPlace);
+}
 	public void PlaySmallExplode() => PlaySfx(SmallBombExplode);
 	public void PlayLargeExplode() => PlaySfx(LargeBombExplode);
 	public void PlayGunpowderLit() => PlaySfx(GunpowderLit);
 	public void PlayGoldCollect() => PlaySfx(GoldCollect);
+	public void PlayDemerit() => PlaySfx(Demerit);
 
 	public void PlayStageBgm()
 	{

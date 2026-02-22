@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cvyrrsorppt3t" path="res://Audio/gunpowder_lit_sfx.mp3" id="6_ru5bd"]
 [ext_resource type="AudioStream" uid="uid://dxsqfmyv5g06" path="res://Audio/gold_collect_sfx.mp3" id="7_b6wgl"]
 [ext_resource type="AudioStream" uid="uid://bjcpcap34hh5q" path="res://Audio/stage_bgm.mp3" id="8_r4ein"]
+[ext_resource type="AudioStream" uid="uid://dnys56j1v5r3a" path="res://Audio/demerit_sfx.mp3" id="9_166c1"]
 
 [node name="AudioManager" type="Node" unique_id=2038945969 node_paths=PackedStringArray("BgmPlayer")]
 script = ExtResource("1_i0icr")
@@ -20,6 +21,7 @@ SmallBombExplode = ExtResource("4_166c1")
 LargeBombExplode = ExtResource("5_2nsqp")
 GunpowderLit = ExtResource("6_ru5bd")
 GoldCollect = ExtResource("7_b6wgl")
+Demerit = ExtResource("9_166c1")
 StageBgm = ExtResource("8_r4ein")
 
 [node name="BgmPlayer" type="AudioStreamPlayer" parent="." unique_id=1385531619]
