@@ -58,6 +58,11 @@ public partial class SmallExplosive : StaticBody2D
 				if(!goldVein.exploded)
 					goldVein.Explode();
 			}
+            else if(node is CaveSupport caveSupport)
+			{
+				if(!caveSupport.exploded)
+					caveSupport.Explode();
+			}
 		}
 		// deletes itself because it was causing lag by staying in the world
 		QueueFree();
