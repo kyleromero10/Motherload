@@ -6,6 +6,7 @@ public partial class MainMenu : Control
 
 	public override void _Ready()
 	{
+		AudioManager.I?.StopBgm();
 		var controlsButton = GetNode<Button>("ControlsButton");
 		controlsButton.Pressed += OnControlsPressed;
 	}
@@ -17,7 +18,7 @@ public partial class MainMenu : Control
 			GD.PushError("ControlsMenuScene is not assigned in the Inspector!");
 			return;
 		}
-
+		AudioManager.I?.PlayUiClick();
 		GetTree().ChangeSceneToPacked(ControlsMenuScene);
 	}
 }

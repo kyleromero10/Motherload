@@ -97,6 +97,7 @@ public partial class BuildManager : Node2D
 					spawnedGunpowder.ForceUpdateTransform();
 					occupiedCells.Add(snappedWorld, spawnedGunpowder);
 					GD.Print(snappedWorld);
+					AudioManager.I?.PlayGunpowderPlace();
 					break;
 				case 2:
 					var spawnedSmallExplosive = smallExplosive.Instantiate<SmallExplosive>();
@@ -104,6 +105,7 @@ public partial class BuildManager : Node2D
 					GetTree().CurrentScene.AddChild(spawnedSmallExplosive);
 					spawnedSmallExplosive.ForceUpdateTransform();
 					occupiedCells.Add(snappedWorld, spawnedSmallExplosive);
+					AudioManager.I?.PlayBombPlace();
 					break;
 				case 3:
 					var spawnedMediumExplosive = mediumExplosive.Instantiate<MediumExplosive>();
@@ -111,6 +113,7 @@ public partial class BuildManager : Node2D
 					GetTree().CurrentScene.AddChild(spawnedMediumExplosive);
 					spawnedMediumExplosive.ForceUpdateTransform();
 					occupiedCells.Add(snappedWorld, spawnedMediumExplosive);
+					AudioManager.I?.PlayBombPlace();
 					break;
 				default:
 					// can change to allow start to be placeable

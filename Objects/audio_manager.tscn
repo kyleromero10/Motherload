@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dsrlksi8ro74k"]
+
+[ext_resource type="Script" uid="uid://crktahk5qbpyn" path="res://Scripts/AudioManager.cs" id="1_i0icr"]
+[ext_resource type="AudioStream" uid="uid://bfoe3lb57blfp" path="res://Audio/button_press_sfx.mp3" id="2_7skee"]
+[ext_resource type="AudioStream" uid="uid://6wa5s158cqkj" path="res://Audio/bomb_place_sfx.mp3" id="3_y714n"]
+[ext_resource type="AudioStream" uid="uid://mo6bwfe1ahsq" path="res://Audio/small_bomb_explode.mp3" id="4_166c1"]
+[ext_resource type="AudioStream" uid="uid://d2ofr4360p8qy" path="res://Audio/gunpowder_place_sfx.mp3" id="4_y714n"]
+[ext_resource type="AudioStream" uid="uid://cy74pvsuf7myd" path="res://Audio/large_bomb_explode.mp3" id="5_2nsqp"]
+[ext_resource type="AudioStream" uid="uid://cvyrrsorppt3t" path="res://Audio/gunpowder_lit_sfx.mp3" id="6_ru5bd"]
+[ext_resource type="AudioStream" uid="uid://dxsqfmyv5g06" path="res://Audio/gold_collect_sfx.mp3" id="7_b6wgl"]
+[ext_resource type="AudioStream" uid="uid://bjcpcap34hh5q" path="res://Audio/stage_bgm.mp3" id="8_r4ein"]
+
+[node name="AudioManager" type="Node" unique_id=2038945969 node_paths=PackedStringArray("BgmPlayer")]
+script = ExtResource("1_i0icr")
+BgmPlayer = NodePath("BgmPlayer")
+ButtonPress = ExtResource("2_7skee")
+BombPlace = ExtResource("3_y714n")
+GunpowderPlace = ExtResource("4_y714n")
+SmallBombExplode = ExtResource("4_166c1")
+LargeBombExplode = ExtResource("5_2nsqp")
+GunpowderLit = ExtResource("6_ru5bd")
+GoldCollect = ExtResource("7_b6wgl")
+StageBgm = ExtResource("8_r4ein")
+
+[node name="BgmPlayer" type="AudioStreamPlayer" parent="." unique_id=1385531619]
+
+[node name="SfxPool" type="Node" parent="." unique_id=2001089485]

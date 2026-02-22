@@ -29,6 +29,7 @@ public partial class SmallExplosive : StaticBody2D
 
 	public async void Explode()
 	{
+		AudioManager.I?.PlaySmallExplode();
 		// checks each node in its radius and lights the specific ones
 		foreach(StaticBody2D node in explosionRadius.GetOverlappingBodies())
 		{

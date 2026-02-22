@@ -19,6 +19,7 @@ public partial class Gunpowder : StaticBody2D
 		await ToSignal(GetTree(), SceneTree.SignalName.PhysicsFrame);
 		// Mark that it has been lit and change its texture
 		lit = true;
+		AudioManager.I?.PlayGunpowderLit();
 		GetChild<Sprite2D>(1).Texture = litTexture;
 		// wait then light nearby
 		await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);

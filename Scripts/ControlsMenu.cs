@@ -6,6 +6,7 @@ public partial class ControlsMenu : Control
 	{
 		GetNode<Button>("ReturnButton").Pressed += () =>
 		{
+			AudioManager.I?.PlayUiClick();
 			GetTree().ChangeSceneToFile("res://Scenes/main_menu.tscn");
 		};
 	}
