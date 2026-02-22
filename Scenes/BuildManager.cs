@@ -305,6 +305,7 @@ public partial class BuildManager : Node2D
                 case 1:
                     previewObject?.QueueFree();
                     previewObject = gunpowder.Instantiate<StaticBody2D>();
+                    previewObject.GlobalPosition = snappedWorld;
                     GetTree().CurrentScene.AddChild(previewObject);
                     previewObject.CollisionLayer = 0;
                     previewObject.CollisionMask = 0;
@@ -312,6 +313,7 @@ public partial class BuildManager : Node2D
                 case 2:
                     previewObject?.QueueFree();
                     previewObject = smallExplosive.Instantiate<StaticBody2D>();
+                    previewObject.GlobalPosition = snappedWorld;
                     GetTree().CurrentScene.AddChild(previewObject);
                     previewObject.CollisionLayer = 0;
                     previewObject.CollisionMask = 0;
@@ -319,6 +321,7 @@ public partial class BuildManager : Node2D
                 case 3:
                     previewObject?.QueueFree();
                     previewObject = mediumExplosive.Instantiate<StaticBody2D>();
+                    previewObject.GlobalPosition = snappedWorld;
                     GetTree().CurrentScene.AddChild(previewObject);
                     previewObject.CollisionLayer = 0;
                     previewObject.CollisionMask = 0;
@@ -326,6 +329,7 @@ public partial class BuildManager : Node2D
                 default:
                     previewObject?.QueueFree();
                     previewObject = start.Instantiate<StaticBody2D>();
+                    previewObject.GlobalPosition = snappedWorld;
                     GetTree().CurrentScene.AddChild(previewObject);
                     previewObject.CollisionLayer = 0;
                     previewObject.CollisionMask = 0;
@@ -338,12 +342,14 @@ public partial class BuildManager : Node2D
             {
                 previewObject?.QueueFree();
                 previewObject = errorObjectMedium.Instantiate<StaticBody2D>();
+                previewObject.GlobalPosition = snappedWorld;
                 GetTree().CurrentScene.AddChild(previewObject);
             }
             else
             {
                 previewObject?.QueueFree();
                 previewObject = errorObject.Instantiate<StaticBody2D>();
+                previewObject.GlobalPosition = snappedWorld;
                 GetTree().CurrentScene.AddChild(previewObject);
             }
         }
