@@ -9,17 +9,17 @@ public partial class SmallExplosive : StaticBody2D
 	public bool lit = false;
 
 	private AnimatedSprite2D sprite;
-    [Export] public BuildManager buildManager;
-    public Vector2 snappedWorld;
+	[Export] public BuildManager buildManager;
+	public Vector2 snappedWorld;
 	public override void _Ready()
 	{
 		sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		sprite.Play("idle");
 	}
-    
+	
 	public async void Lit()
 	{
-        buildManager = GetNode<BuildManager>("/root/Level");
+		buildManager = GetNode<BuildManager>("/root/Level");
 		if (lit)
 			return;
 
@@ -75,8 +75,8 @@ public partial class SmallExplosive : StaticBody2D
 		Delete();
 	}
 
-    public void Delete()
-    {
-        QueueFree();
-    }
+	public void Delete()
+	{
+		QueueFree();
+	}
 }
