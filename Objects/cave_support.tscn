@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cw30ul5p1232k"]
+
+[ext_resource type="Texture2D" uid="uid://mfyek32531nm" path="res://Assets/red.png" id="1_c4tcm"]
+[ext_resource type="Script" uid="uid://5nt4y7pgwo00" path="res://Scripts/CaveSupport.cs" id="1_rao8f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbdq0"]
+size = Vector2(48, 48)
+
+[node name="Support" type="StaticBody2D" unique_id=1257493933 groups=["Support"]]
+script = ExtResource("1_rao8f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2005246895]
+shape = SubResource("RectangleShape2D_vbdq0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1683816681]
+position = Vector2(9.536743e-07, 9.536743e-07)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_c4tcm")
