@@ -96,7 +96,6 @@ public partial class BuildManager : Node2D
 					GetTree().CurrentScene.AddChild(spawnedGunpowder);
 					spawnedGunpowder.ForceUpdateTransform();
 					occupiedCells.Add(snappedWorld, spawnedGunpowder);
-					GD.Print(snappedWorld);
 					AudioManager.I?.PlayGunpowderPlace();
 					break;
 				case 2:
