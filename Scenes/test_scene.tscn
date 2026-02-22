@@ -11,13 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://cjptmp4y1a61r" path="res://Objects/non_placeable_medium.tscn" id="7_040rt"]
 [ext_resource type="PackedScene" uid="uid://bbrjp5jkta8im" path="res://Objects/game_master.tscn" id="7_d3awe"]
 [ext_resource type="Script" uid="uid://bfnvx8c2odse0" path="res://Scenes/PlayerController.cs" id="8_4qg1e"]
-[ext_resource type="PackedScene" path="res://Scenes/win_screen.tscn" id="8_dhrl2"]
+[ext_resource type="PackedScene" uid="uid://vek4mcg1bhp4" path="res://Scenes/win_screen.tscn" id="8_dhrl2"]
 [ext_resource type="Texture2D" uid="uid://dj4tucu3kjfja" path="res://Assets/Sprites/UnplaceableTiles.png" id="9_4blnk"]
-[ext_resource type="PackedScene" path="res://Scenes/lose_screen.tscn" id="9_i0miu"]
+[ext_resource type="PackedScene" uid="uid://c5100uo5uegyl" path="res://Scenes/lose_screen.tscn" id="9_i0miu"]
 [ext_resource type="PackedScene" uid="uid://drgjgxktlxob2" path="res://Objects/small_gold_vein.tscn" id="10_bwjpn"]
 [ext_resource type="PackedScene" uid="uid://d268l1jnr6re0" path="res://Objects/gold_vein.tscn" id="11_ibmi3"]
 [ext_resource type="Texture2D" uid="uid://8y4bsg3llyow" path="res://Assets/Sprites/DestructibleSprites.png" id="11_tnimv"]
-[ext_resource type="PackedScene" uid="uid://cw30ul5p1232k" path="res://Objects/cave_support.tscn" id="14_tnimv"]
+[ext_resource type="PackedScene" path="res://Objects/cave_support.tscn" id="14_tnimv"]
+[ext_resource type="PackedScene" uid="uid://c0th6kxfi0s33" path="res://Scenes/UI.tscn" id="18_i0miu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4qg1e"]
 texture = ExtResource("6_x033f")
@@ -147,7 +148,10 @@ mediumExplosive = ExtResource("4_hb2xm")
 errorObject = ExtResource("3_ak5v8")
 errorObjectMedium = ExtResource("7_040rt")
 
-[node name="GameMaster" parent="." unique_id=349084835 instance=ExtResource("7_d3awe")]
+[node name="GameMaster" parent="." unique_id=349084835 node_paths=PackedStringArray("UI", "winScreen", "loseScreen") instance=ExtResource("7_d3awe")]
+UI = NodePath("../CanvasLayer/MainUI")
+winScreen = NodePath("../CanvasLayer/WinScreen")
+loseScreen = NodePath("../CanvasLayer/LoseScreen")
 
 [node name="PlaceableTiles" type="TileMapLayer" parent="." unique_id=548369635]
 texture_filter = 1
@@ -310,3 +314,7 @@ visible = false
 
 [node name="LoseScreen" parent="CanvasLayer" unique_id=311924164 instance=ExtResource("9_i0miu")]
 visible = false
+
+[node name="MainUI" parent="CanvasLayer" unique_id=1342317943 node_paths=PackedStringArray("startScript", "buildManager") instance=ExtResource("18_i0miu")]
+startScript = NodePath("../../Start")
+buildManager = NodePath("../..")

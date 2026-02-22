@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c0th6kxfi0s33"]
 
 [ext_resource type="Texture2D" uid="uid://c3jpqa1wxi7mg" path="res://Assets/Sprites/Gunpowder.png" id="1_dewlx"]
+[ext_resource type="Script" uid="uid://31wyfmga3yf5" path="res://Scripts/Ui.cs" id="1_hfhsn"]
 [ext_resource type="Texture2D" uid="uid://djh0705lloh27" path="res://Assets/Sprites/SmallBarrelSprites.png" id="2_hfhsn"]
 [ext_resource type="Texture2D" uid="uid://c0ewu5idymteo" path="res://Assets/Sprites/MediumBarrelSprites.png" id="3_qwshj"]
 
@@ -16,26 +17,21 @@ region = Rect2(0, 0, 64, 64)
 atlas = ExtResource("3_qwshj")
 region = Rect2(0, 0, 64, 64)
 
-[node name="Control" type="Control" unique_id=1342317943]
+[node name="MainUI" type="Control" unique_id=1342317943 node_paths=PackedStringArray("start", "menu", "items", "gold", "health")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hfhsn")
+start = NodePath("Start")
+menu = NodePath("Menu")
+items = NodePath("ItemList")
+gold = NodePath("GoldCollected")
+health = NodePath("SupportHealth")
 
-[node name="Button" type="Button" parent="." unique_id=2120455830]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 594.0
-offset_right = -1015.0
-offset_bottom = -7.0
-text = "Build Menu"
-
-[node name="Button2" type="Button" parent="." unique_id=786586661]
+[node name="Start" type="Button" parent="." unique_id=786586661]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,6 +44,17 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Boom
 Button"
+
+[node name="Menu" type="Button" parent="." unique_id=2120455830]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 594.0
+offset_right = -1015.0
+offset_bottom = -7.0
+text = "Build Menu"
 
 [node name="ItemList" type="ItemList" parent="." unique_id=1363710303]
 texture_filter = 1
@@ -69,3 +76,26 @@ item_1/text = "Small Barrel"
 item_1/icon = SubResource("AtlasTexture_xjg7p")
 item_2/text = "Large Barrel"
 item_2/icon = SubResource("AtlasTexture_mg6lk")
+
+[node name="GoldCollected" type="Label" parent="." unique_id=1686979020]
+layout_mode = 0
+anchor_left = 0.20399305
+anchor_top = 0.016975308
+anchor_right = 0.33506945
+anchor_bottom = 0.052469134
+text = "Gold Collected: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="SupportHealth" type="Label" parent="." unique_id=946994606]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48958334
+anchor_top = 0.016975308
+anchor_right = 0.6206597
+anchor_bottom = 0.052469134
+text = "Support Health: 3"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Start" to="." method="OnStartPressed"]
+[connection signal="pressed" from="Menu" to="." method="OnMenuPressed"]
+[connection signal="item_selected" from="ItemList" to="." method="OnItemSelected"]

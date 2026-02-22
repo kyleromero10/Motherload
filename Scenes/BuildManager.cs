@@ -49,7 +49,7 @@ public partial class BuildManager : Node2D
             placeableStatus = !placeableStatus;
         }
         // placing an object
-        if (Input.IsActionPressed("left_click"))
+        if (Input.IsActionPressed("right_click"))
         {
             PlaceObject(activeObject);
         }

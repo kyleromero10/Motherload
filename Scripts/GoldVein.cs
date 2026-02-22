@@ -55,6 +55,7 @@ public partial class GoldVein : StaticBody2D
 			gameMaster.goldCollected++;
 			AudioManager.I?.PlayGoldCollect();
 			GD.Print("Gold collected: " + gameMaster.goldCollected);
+			gameMaster.updateLabels();
 			// wait to explode
 			await ToSignal(GetTree().CreateTimer(2f), SceneTreeTimer.SignalName.Timeout);
 			QueueFree();

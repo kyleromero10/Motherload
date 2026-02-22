@@ -43,6 +43,7 @@ public partial class CaveSupport : StaticBody2D
 			gameMaster.totalHealth--;
 			AudioManager.I?.PlayDemerit();
 			GD.Print("Structual Health Remaining: " + gameMaster.totalHealth);
+			gameMaster.updateLabels();
 			// wait to explode
 			await ToSignal(GetTree().CreateTimer(2f), SceneTreeTimer.SignalName.Timeout);
 			QueueFree();

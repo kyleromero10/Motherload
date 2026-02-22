@@ -1,9 +1,11 @@
 using Godot;
 using System;
+using System.Data;
 using System.IO;
 
 public partial class GameMaster : Node
 {
+	[Export] public Control UI;
 	[Export] public Control winScreen;
 	[Export] public Control loseScreen;
 
@@ -24,6 +26,12 @@ public partial class GameMaster : Node
 
 		goldCollected = 0;
 
+	}
+
+	public void updateLabels()
+	{
+		UI.GetNode<Label>("GoldCollected").Text = "Gold Collected: " + goldCollected;
+		UI.GetNode<Label>("SupportHealth").Text = "Support Health: " + totalHealth;
 	}
 
 	public void EndLevel()
