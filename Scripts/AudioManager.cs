@@ -24,6 +24,7 @@ public partial class AudioManager : Node
 	[Export] public AudioStream GunpowderLit { get; set; }
 	[Export] public AudioStream GoldCollect { get; set; }
 	[Export] public AudioStream Demerit { get; set; }
+	[Export] public AudioStream VictorySfx { get; set; }
 
 	// Music clip
 	[Export] public AudioStream StageBgm { get; set; }
@@ -104,6 +105,7 @@ public partial class AudioManager : Node
 	public void PlayGunpowderLit() => PlaySfx(GunpowderLit);
 	public void PlayGoldCollect() => PlaySfx(GoldCollect);
 	public void PlayDemerit() => PlaySfx(Demerit);
+	public void PlayVictory() => PlaySfx(VictorySfx);
 
 	public void PlayStageBgm()
 	{

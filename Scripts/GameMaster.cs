@@ -29,7 +29,8 @@ public partial class GameMaster : Node
 		// changes the scene to the win scene
 		winScreen.Visible = true;
 		GD.Print("Level Ended");
-		
+		AudioManager.I?.PlayVictory();
+		AudioManager.I?.StopBgm();
 	}
 
 	public void FailedLevel()

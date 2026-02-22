@@ -3,12 +3,27 @@ using Godot;
 public partial class MainMenu : Control
 {
 	[Export] public PackedScene ControlsMenuScene { get; set; }
+	[Export] public PackedScene LevelScene { get; set; } 
 
 	public override void _Ready()
 	{
 		AudioManager.I?.StopBgm();
-		var controlsButton = GetNode<Button>("ControlsButton");
-		controlsButton.Pressed += OnControlsPressed;
+
+		GetNode<Button>("ControlsButton").Pressed += OnControlsPressed;
+
+		GetNode<Button>("StartButton").Pressed += OnStartPressed;
+	}
+
+	private void OnStartPressed()
+	{
+		if (LevelScene == null)
+		{
+			GD.PushError("LevelScene is not assigned in the Inspector!");
+			return;
+		}
+
+		AudioManager.I?.PlayUiClick();
+		GetTree().ChangeSceneToPacked(LevelScene);
 	}
 
 	private void OnControlsPressed()
@@ -18,6 +33,7 @@ public partial class MainMenu : Control
 			GD.PushError("ControlsMenuScene is not assigned in the Inspector!");
 			return;
 		}
+
 		AudioManager.I?.PlayUiClick();
 		GetTree().ChangeSceneToPacked(ControlsMenuScene);
 	}
