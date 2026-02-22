@@ -18,7 +18,7 @@ public partial class PlayerController : CharacterBody2D
                 Input.GetAxis("player_left", "player_right"),
                 Input.GetAxis("player_up", "player_down")
             );
-        Velocity = myInputAxis.Normalized() * 300;
+        Velocity = myInputAxis.Normalized() * 1000;
         if (Input.IsActionJustPressed("player_zoom_in"))
         {
             zoomCount++;

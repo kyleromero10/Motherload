@@ -5,6 +5,6 @@ public partial class ResetButton : Button
 {
     public void OnButtonPressed()
     {
-        GetTree().ChangeSceneToFile("res://Scenes/test_scene.tscn");
+        GetTree().ChangeSceneToFile("res://Scenes/Level.tscn");
     }
 }
