@@ -32,43 +32,62 @@ offset_bottom = 607.0
 [node name="ReturnButton" type="Button" parent="." unique_id=2020102085]
 layout_mode = 0
 offset_left = 503.0
-offset_top = 517.0
+offset_top = 499.0
 offset_right = 669.0
-offset_bottom = 590.0
+offset_bottom = 572.0
 theme_override_font_sizes/font_size = 26
 text = "Return"
 
 [node name="Label" type="Label" parent="." unique_id=2112954655]
 layout_mode = 0
-offset_left = 667.0
-offset_top = 73.0
-offset_right = 879.0
-offset_bottom = 126.0
+offset_left = 640.0
+offset_top = 74.0
+offset_right = 852.0
+offset_bottom = 127.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 38
 text = "How to Win"
 
 [node name="Label2" type="Label" parent="." unique_id=1895077038]
 layout_mode = 0
-offset_left = 332.0
-offset_top = 74.0
-offset_right = 487.0
-offset_bottom = 127.0
+offset_left = 285.0
+offset_top = 73.0
+offset_right = 502.0
+offset_bottom = 126.0
 theme_override_font_sizes/font_size = 38
-text = "Controls"
+text = "How to Play"
 
 [node name="LeftText" type="RichTextLabel" parent="." unique_id=2021782910]
 layout_mode = 0
 offset_left = 234.0
-offset_top = 139.0
-offset_right = 543.0
-offset_bottom = 493.0
-text = "yadda yadda"
+offset_top = 168.0
+offset_right = 565.0
+offset_bottom = 522.0
+text = "Place gunpowder down with left mouse 
+
+
+Select the bombs to place them
+
+
+Press (key) to ignite the gunpowder
+
+"
 
 [node name="RightText" type="RichTextLabel" parent="." unique_id=1909238198]
 layout_mode = 0
-offset_left = 632.0
-offset_top = 139.0
-offset_right = 941.0
-offset_bottom = 493.0
-text = "yadda yadda"
+offset_left = 612.0
+offset_top = 145.0
+offset_right = 921.0
+offset_bottom = 499.0
+text = "
+Blow up all the Gold Ore!
+
+
+Avoid the support structures!
+
+
+Blow up too many supports and your game will end!
+
+
+Reach the Motherload at the end of the level to get your final score!"
+scroll_active = false
