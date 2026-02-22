@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d3ptkgch0a0vq" path="res://Assets/MenuArt/desert.png" id="1_48xlc"]
 [ext_resource type="Texture2D" uid="uid://dkfe8k026kwg6" path="res://Assets/MenuArt/logo.png" id="2_1ehe0"]
 [ext_resource type="PackedScene" uid="uid://ca6ingakokav8" path="res://Scenes/controls_menu.tscn" id="2_ce3w2"]
-[ext_resource type="PackedScene" uid="uid://cfgrxvstdnv6f" path="res://Scenes/Level.tscn" id="3_n45e2"]
+[ext_resource type="PackedScene" uid="uid://dnu1tm84qhwtw" path="res://Scenes/Level.tscn" id="3_n45e2"]
 
 [node name="MainMenu" type="Control" unique_id=1584574652]
 layout_mode = 3
