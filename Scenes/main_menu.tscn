@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bc8m33smag8q7"]
+
+[ext_resource type="Script" uid="uid://cw80kpb34ud1r" path="res://Scripts/MainMenu.cs" id="1_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://d3ptkgch0a0vq" path="res://Assets/MenuArt/desert.png" id="1_48xlc"]
+[ext_resource type="Texture2D" uid="uid://dkfe8k026kwg6" path="res://Assets/MenuArt/logo.png" id="2_1ehe0"]
+[ext_resource type="PackedScene" uid="uid://ca6ingakokav8" path="res://Scenes/controls_menu.tscn" id="2_ce3w2"]
+
+[node name="MainMenu" type="Control" unique_id=1584574652]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ehe0")
+ControlsMenuScene = ExtResource("2_ce3w2")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1971465766]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_48xlc")
+expand_mode = 1
+
+[node name="StartButton" type="Button" parent="." unique_id=1896421162]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 441.0
+offset_right = 430.0
+offset_bottom = 519.0
+theme_override_font_sizes/font_size = 26
+text = "Start"
+
+[node name="ControlsButton" type="Button" parent="." unique_id=1955714546]
+layout_mode = 0
+offset_left = 759.0
+offset_top = 440.0
+offset_right = 961.0
+offset_bottom = 519.0
+theme_override_font_sizes/font_size = 26
+text = "Controls"
+
+[node name="LogoTextureRect" type="TextureRect" parent="." unique_id=1661395943]
+layout_mode = 0
+offset_left = 358.0
+offset_top = -15.0
+offset_right = 791.0
+offset_bottom = 385.0
+texture = ExtResource("2_1ehe0")
+expand_mode = 1
