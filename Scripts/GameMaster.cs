@@ -16,7 +16,7 @@ public partial class GameMaster : Node
 	{
 		base._Ready();
 		//UNCOMMENT BELOW TO START BGM
-		//AudioManager.I?.PlayStageBgm();
+		AudioManager.I?.PlayStageBgm();
 		// connects the level end signal to the function that will end the level
 		GetNode<GoldVein>("/root/Level/GoldVein").Connect("LevelEnd", Callable.From(EndLevel));
 		foreach(Node node in GetTree().GetNodesInGroup("Support"))

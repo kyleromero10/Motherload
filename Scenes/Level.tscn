@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cjptmp4y1a61r" path="res://Objects/non_placeable_medium.tscn" id="7_q24aw"]
 [ext_resource type="PackedScene" uid="uid://d268l1jnr6re0" path="res://Objects/gold_vein.tscn" id="12_44tr1"]
 [ext_resource type="Script" uid="uid://bfnvx8c2odse0" path="res://Scenes/PlayerController.cs" id="13_fhlu0"]
-[ext_resource type="PackedScene" path="res://Objects/cave_support.tscn" id="14_bktio"]
+[ext_resource type="PackedScene" uid="uid://cw30ul5p1232k" path="res://Objects/cave_support.tscn" id="14_bktio"]
 [ext_resource type="PackedScene" uid="uid://drgjgxktlxob2" path="res://Objects/small_gold_vein.tscn" id="15_nrlyp"]
 [ext_resource type="PackedScene" uid="uid://c0th6kxfi0s33" path="res://Scenes/UI.tscn" id="17_32npc"]
 [ext_resource type="PackedScene" uid="uid://vek4mcg1bhp4" path="res://Scenes/win_screen.tscn" id="18_yyp3s"]
@@ -148,8 +148,7 @@ mediumExplosive = ExtResource("5_bktio")
 errorObject = ExtResource("6_nrlyp")
 errorObjectMedium = ExtResource("7_q24aw")
 
-[node name="GameMaster" parent="." unique_id=349084835 node_paths=PackedStringArray("UI", "winScreen", "loseScreen") instance=ExtResource("2_5rrr5")]
-UI = NodePath("../CanvasLayer/MainUI")
+[node name="GameMaster" parent="." unique_id=349084835 node_paths=PackedStringArray("winScreen", "loseScreen") instance=ExtResource("2_5rrr5")]
 winScreen = NodePath("../CanvasLayer/WinScreen")
 loseScreen = NodePath("../CanvasLayer/LoseScreen")
 
