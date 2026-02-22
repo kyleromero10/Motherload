@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://c0th6kxfi0s33"]
+
+[ext_resource type="Texture2D" uid="uid://c3jpqa1wxi7mg" path="res://Assets/Sprites/Gunpowder.png" id="1_dewlx"]
+[ext_resource type="Texture2D" uid="uid://djh0705lloh27" path="res://Assets/Sprites/SmallBarrelSprites.png" id="2_hfhsn"]
+[ext_resource type="Texture2D" uid="uid://c0ewu5idymteo" path="res://Assets/Sprites/MediumBarrelSprites.png" id="3_qwshj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48q88"]
+atlas = ExtResource("1_dewlx")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjg7p"]
+atlas = ExtResource("2_hfhsn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg6lk"]
+atlas = ExtResource("3_qwshj")
+region = Rect2(0, 0, 64, 64)
+
+[node name="Control" type="Control" unique_id=1342317943]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="." unique_id=2120455830]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 594.0
+offset_right = -1015.0
+offset_bottom = -7.0
+text = "Build Menu"
+
+[node name="Button2" type="Button" parent="." unique_id=786586661]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 547.0
+offset_top = 566.0
+offset_right = -536.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Boom
+Button"
+
+[node name="ItemList" type="ItemList" parent="." unique_id=1363710303]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 371.0
+offset_right = -962.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 2
+max_text_lines = 3
+item_count = 3
+item_0/text = "Gunpowder"
+item_0/icon = SubResource("AtlasTexture_48q88")
+item_1/text = "Small Barrel"
+item_1/icon = SubResource("AtlasTexture_xjg7p")
+item_2/text = "Large Barrel"
+item_2/icon = SubResource("AtlasTexture_mg6lk")

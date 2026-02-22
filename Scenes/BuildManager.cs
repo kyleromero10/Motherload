@@ -7,11 +7,11 @@ public partial class BuildManager : Node2D
 	public Dictionary<Vector2, StaticBody2D> occupiedCells = new();
 	[Export]
 	public TileMapLayer placeableTileMap;
-    [Export]
+	[Export]
 	public TileMapLayer unplaceableTileMap;
-    [Export]
+	[Export]
 	public TileMapLayer wallsTileMap;
-    [Export]
+	[Export]
 	public TileMapLayer destructablesTileMap;
 	[Export]
 	public PackedScene start;
@@ -96,7 +96,7 @@ public partial class BuildManager : Node2D
 					GetTree().CurrentScene.AddChild(spawnedGunpowder);
 					spawnedGunpowder.ForceUpdateTransform();
 					occupiedCells.Add(snappedWorld, spawnedGunpowder);
-                    GD.Print(snappedWorld);
+					GD.Print(snappedWorld);
 					break;
 				case 2:
 					var spawnedSmallExplosive = smallExplosive.Instantiate<SmallExplosive>();
@@ -135,16 +135,16 @@ public partial class BuildManager : Node2D
 		// checks the source Id of the tilemap and looks for correct one
 		int placeableSourceId = placeableTileMap.GetCellSourceId(cell);
 		int unplacableSourceId = unplaceableTileMap.GetCellSourceId(cell);
-        int wallsSourceId = wallsTileMap.GetCellSourceId(cell);
-        int destructablesSourceId = destructablesTileMap.GetCellSourceId(cell);
-        if(placeableSourceId == -1 || unplacableSourceId == 0 || wallsSourceId == 0 || destructablesSourceId == 0)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+		int wallsSourceId = wallsTileMap.GetCellSourceId(cell);
+		int destructablesSourceId = destructablesTileMap.GetCellSourceId(cell);
+		if(placeableSourceId == -1 || unplacableSourceId == 0 || wallsSourceId == 0 || destructablesSourceId == 0)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 
 	public void ChangePreview()
