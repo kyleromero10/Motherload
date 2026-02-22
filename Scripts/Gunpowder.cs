@@ -6,23 +6,29 @@ public partial class Gunpowder : StaticBody2D
 	[Export]
 	public Area2D lightRadius;
 	public bool lit = false;
-
-	[Export]
-	public CompressedTexture2D litTexture;
+	
+	public override void _Ready()
+	{
+		var sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		sprite.Play("idle");
+	}
 
 	public async void Lit()
 	{
-		// force recheck on overlapping areas
 		lightRadius.Monitoring = false;
 		lightRadius.Monitoring = true;
-		// slight start delay
+
 		await ToSignal(GetTree(), SceneTree.SignalName.PhysicsFrame);
-		// Mark that it has been lit and change its texture
+
 		lit = true;
 		AudioManager.I?.PlayGunpowderLit();
-		GetChild<Sprite2D>(1).Texture = litTexture;
-		// wait then light nearby
-		await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
+
+		AnimatedSprite2D sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		sprite.Play("burn");
+
+		// Wait until animation finishes
+		await ToSignal(sprite, AnimatedSprite2D.SignalName.AnimationFinished);
+
 		LightNearby();
 	}
 

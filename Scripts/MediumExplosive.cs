@@ -5,66 +5,69 @@ public partial class MediumExplosive : StaticBody2D
 {
 	[Export]
 	public Area2D explosionRadius;
+
+	private AnimatedSprite2D sprite;
 	public bool lit = false;
-	[Export]
-	public CompressedTexture2D litTexture;
-	[Export]
-	public CompressedTexture2D explodedTexture;
+
+	public override void _Ready()
+	{
+		sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+
+		// start in idle animation
+		sprite.Play("idle");
+
+		// make sure explosive is not lit initially
+		lit = false;
+	}
 
 	public async void Lit()
 	{
-		// force recheck on overlapping areas
+		if (lit)
+			return;
+
+		// force the explosion radius to recheck overlapping bodies
 		explosionRadius.Monitoring = false;
 		explosionRadius.Monitoring = true;
-		// slight start delay
+
+		// wait one physics frame for safety
 		await ToSignal(GetTree(), SceneTree.SignalName.PhysicsFrame);
-		// Mark that it has been lit and change its texture
+
 		lit = true;
-		GetChild<Sprite2D>(1).Texture = litTexture;
-		// wait to explode
-		await ToSignal(GetTree().CreateTimer(2f), SceneTreeTimer.SignalName.Timeout);
-		Explode();
-		GetChild<Sprite2D>(1).Texture = explodedTexture;
+
+		// play fuse animation
+		sprite.Play("lit");
+
+		// wait until the lit animation finishes
+		await ToSignal(sprite, AnimatedSprite2D.SignalName.AnimationFinished);
+
+		if (sprite.Animation == "lit")
+			Explode();
 	}
 
 	public async void Explode()
 	{
-		AudioManager.I?.PlayLargeExplode();
-		// checks each node in its radius and lights the specific ones
-		foreach(StaticBody2D node in explosionRadius.GetOverlappingBodies())
+		// play explosion animation
+		sprite.Play("explode");
+
+		// Immediately light nearby explosives / gunpowder
+		foreach (StaticBody2D node in explosionRadius.GetOverlappingBodies())
 		{
 			if (node == this)
 				continue;
-			// Gunpowder trails
-			if(node is Gunpowder gunpowder)
-			{
-				if(!gunpowder.lit)
-					gunpowder.Lit();
-			}
-			// small explosives
-			else if(node is SmallExplosive smallExplosive)
-			{
-				if(!smallExplosive.lit)
-					smallExplosive.Lit();
-			}
-			// Medium Explosives
-			else if(node is MediumExplosive mediumExplosive)
-			{
-				if(!mediumExplosive.lit)
-					mediumExplosive.Lit();
-			}
-			else if(node is GoldVein goldVein)
-			{
-				if(!goldVein.exploded)
-					goldVein.Explode();
-			}
-            else if(node is CaveSupport caveSupport)
-			{
-				if(!caveSupport.exploded)
-					caveSupport.Explode();
-			}
+
+			if (node is Gunpowder gunpowder && !gunpowder.lit)
+				gunpowder.Lit();
+			else if (node is SmallExplosive smallExplosive && !smallExplosive.lit)
+				smallExplosive.Lit();
+			else if (node is MediumExplosive mediumExplosive && !mediumExplosive.lit)
+				mediumExplosive.Lit();
+			else if (node is GoldVein goldVein && !goldVein.exploded)
+				goldVein.Explode();
 		}
-		// deletes itself because it was causing lag by staying in the world
+
+		// wait for the explosion animation to finish before removing
+		await ToSignal(sprite, AnimatedSprite2D.SignalName.AnimationFinished);
+
 		QueueFree();
 	}
 }

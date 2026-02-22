@@ -43,15 +43,15 @@ public partial class GoldVein : StaticBody2D
 		Visible = false;
 		if(isGoal)
 		{
-            destructiblesTileMap.EraseCell(tileMap.LocalToMap(snappedWorld));
-            destructiblesTileMap.EraseCell(tileMap.LocalToMap(new Vector2 (snappedWorld.X + 64, snappedWorld.Y)));
-            destructiblesTileMap.EraseCell(tileMap.LocalToMap(new Vector2 (snappedWorld.X, snappedWorld.Y + 64)));
-            destructiblesTileMap.EraseCell(tileMap.LocalToMap(new Vector2 (snappedWorld.X + 64, snappedWorld.Y + 64)));
+			destructiblesTileMap.EraseCell(tileMap.LocalToMap(snappedWorld));
+			destructiblesTileMap.EraseCell(tileMap.LocalToMap(new Vector2 (snappedWorld.X + 64, snappedWorld.Y)));
+			destructiblesTileMap.EraseCell(tileMap.LocalToMap(new Vector2 (snappedWorld.X, snappedWorld.Y + 64)));
+			destructiblesTileMap.EraseCell(tileMap.LocalToMap(new Vector2 (snappedWorld.X + 64, snappedWorld.Y + 64)));
 			EmitSignal("LevelEnd");
 		}
 		else
 		{
-            destructiblesTileMap.EraseCell(tileMap.LocalToMap(snappedWorld));
+			destructiblesTileMap.EraseCell(tileMap.LocalToMap(snappedWorld));
 			gameMaster.goldCollected++;
 			AudioManager.I?.PlayGoldCollect();
 			GD.Print("Gold collected: " + gameMaster.goldCollected);

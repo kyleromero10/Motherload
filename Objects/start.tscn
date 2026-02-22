@@ -1,11 +1,75 @@
 [gd_scene format=3 uid="uid://ckdteieu14e4u"]
 
 [ext_resource type="Script" uid="uid://dy7fye6h2ixwg" path="res://Scripts/Start.cs" id="1_4qt53"]
-[ext_resource type="Texture2D" uid="uid://mfyek32531nm" path="res://Assets/red.png" id="2_7o1bs"]
-[ext_resource type="Texture2D" uid="uid://dxjulgpt7bl64" path="res://Assets/green.png" id="3_mqndg"]
+[ext_resource type="Texture2D" uid="uid://c3jpqa1wxi7mg" path="res://Assets/Sprites/Gunpowder.png" id="3_mqndg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7o1bs"]
 size = Vector2(48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jle48"]
+atlas = ExtResource("3_mqndg")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u12f5"]
+atlas = ExtResource("3_mqndg")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s07ck"]
+atlas = ExtResource("3_mqndg")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1j72h"]
+atlas = ExtResource("3_mqndg")
+region = Rect2(0, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5v3n"]
+atlas = ExtResource("3_mqndg")
+region = Rect2(0, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1upk"]
+atlas = ExtResource("3_mqndg")
+region = Rect2(0, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hia5r"]
+atlas = ExtResource("3_mqndg")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2nstc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jle48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u12f5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s07ck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1j72h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5v3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1upk")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"burn",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hia5r")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q6o0e"]
 size = Vector2(48, 112)
@@ -19,15 +83,15 @@ size = Vector2(48, 48)
 [node name="Start" type="StaticBody2D" unique_id=1955308037 node_paths=PackedStringArray("lightRadius") groups=["Gunpowder"]]
 script = ExtResource("1_4qt53")
 lightRadius = NodePath("LightRadius")
-litTexture = ExtResource("2_7o1bs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=94096051]
 shape = SubResource("RectangleShape2D_7o1bs")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1355504217]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2111098563]
+texture_filter = 1
 position = Vector2(9.536743e-07, 0)
-scale = Vector2(0.12499999, 0.12499999)
-texture = ExtResource("3_mqndg")
+sprite_frames = SubResource("SpriteFrames_2nstc")
+animation = &"idle"
 
 [node name="LightRadius" type="Area2D" parent="." unique_id=609359270]
 
