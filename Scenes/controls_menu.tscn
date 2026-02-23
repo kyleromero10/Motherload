@@ -63,11 +63,7 @@ offset_left = 234.0
 offset_top = 168.0
 offset_right = 565.0
 offset_bottom = 522.0
-text = "Place gunpowder down with left mouse 
-
-
-Right click to place bombs
-
+text = "Place gunpowder and bombs with right click
 
 Press the button to ignite the gunpowder
 
