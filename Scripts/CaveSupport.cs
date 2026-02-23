@@ -33,10 +33,11 @@ public partial class CaveSupport : StaticBody2D
 		Visible = false;
 		// trying to delete/change visual
 		destructiblesTileMap.SetCell(tileMap.LocalToMap(snappedWorld), 1, new Vector2I (7, 2));
-		if(gameMaster.totalHealth <= 1)
+		if(gameMaster.totalHealth < 1)
 		{
 			AudioManager.I?.PlayDemerit();
 			EmitSignal("LevelFailed");
+			gameMaster.FailedLevel();
 		}
 		else
 		{
